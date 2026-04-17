@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Translator Pro</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="yle.css">
+</head>
+<body>
+  <div class="navbar">
+    <div class="logo">🌐 Translator Pro</div>
+    <button class="theme-btn" id="themeBtn">🌙</button>
+  </div>
+
+  <div class="main">
+    <!-- Main Translator -->
+    <div class="card">
+      <div class="lang-grid">
+        <div class="lang-section">
+          <label class="label">From</label>
+          <select id="fromLang">
+            <option value="">Select Language</option>
+          </select>
+        </div>
+        
+        <button class="swap" id="swapBtn"><i class="fas fa-exchange-alt"></i></button>
+        
+        <div class="lang-section">
+          <label class="label">To</label>
+          <select id="toLang">
+            <option value="">Select Language</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="text-grid">
+        <div class="text-box">
+          <label class="label">📝 Input</label>
+          <textarea id="input" placeholder="Enter text here..."></textarea>
+          <div class="btn-group">
+            <button id="speakInBtn"><i class="fas fa-microphone"></i> Speak</button>
+            <button id="copyInBtn"><i class="fas fa-copy"></i> Copy</button>
+            <button id="clearBtn"><i class="fas fa-trash"></i> Clear</button>
+          </div>
+        </div>
+
+        <div class="text-box">
+          <label class="label">🎯 Output</label>
+          <textarea id="output" placeholder="Translation will appear here..." readonly></textarea>
+          <div class="btn-group">
+            <button id="copyOutBtn"><i class="fas fa-copy"></i> Copy</button>
+            <button id="shareBtn"><i class="fas fa-share"></i> Share</button>
+            <button id="downloadBtn"><i class="fas fa-download"></i> Download</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="big-btn" id="translateBtn">Translate</button>
+    </div>
+
+    <!-- Features -->
+    <div class="feature-grid">
+      <div class="feature">
+        <h3>🌐 Multi-Language</h3>
+        <p>Translate to multiple languages at once</p>
+        <button id="multiBtn">Try Now</button>
+      </div>
+
+      <div class="feature">
+        <h3>📜 History</h3>
+        <p>View all your translation history</p>
+        <button id="historyBtn">View</button>
+      </div>
+
+      <div class="feature">
+        <h3>⚡ Fast & Accurate</h3>
+        <p>Real-time translation support</p>
+        <button id="pdfBtn">📄 PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Multi Language Modal -->
+  <div class="modal" id="multiModal">
+    <div class="modal-box">
+      <h2>🌐 Multi-Language Translation</h2>
+      <div class="lang-options" id="langChips"></div>
+      <button class="big-btn" id="multiTranslateBtn">Translate All</button>
+      <div id="multiResults"></div>
+      <button class="big-btn" onclick="closeModal('multiModal')">Close</button>
+    </div>
+  </div>
+
+  <!-- History Modal -->
+  <div class="modal" id="historyModal">
+    <div class="modal-box">
+      <h2> History</h2>
+      <div id="historyList"></div>
+      <button class="big-btn" onclick="closeModal('historyModal')">Close</button>
+    </div>
+  </div>
+
+  <!-- Share Modal -->
+  <div class="modal" id="shareModal">
+    <div class="modal-box">
+      <h2>📤 Share</h2>
+      <p id="shareText"></p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <button onclick="shareVia('whatsapp')" style="background: #25D366;">WhatsApp</button>
+        <button onclick="shareVia('email')" style="background: #EA4335;">Email</button>
+        <button onclick="shareVia('twitter')" style="background: #1DA1F2;">Twitter</button>
+        <button onclick="shareVia('copy')" style="background: #667eea;">Copy</button>
+      </div>
+      <button class="big-btn" onclick="closeModal('shareModal')">Close</button>
+    </div>
+  </div>
+
+  <!-- PDF Modal -->
+  <div class="modal" id="pdfModal">
+    <div class="modal-box">
+      <h2>📄 PDF Translation</h2>
+      <input type="file" id="pdfFile" accept=".pdf">
+      <button class="big-btn" id="uploadPdfBtn">Upload & Translate PDF</button>
+      <button class="big-btn" onclick="closeModal('pdfModal')">Close</button>
+    </div>
+  </div>
+
+  <script src="sript.js"></script>
+</body>
+</html>
